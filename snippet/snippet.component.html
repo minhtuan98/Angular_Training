@@ -1,0 +1,27 @@
+<div *ngIf = "showForm">
+<input placeholder=" English" [(ngModel)] = "newEn">
+<br>
+<input placeholder=" Vietnamese" [(ngModel)] = "newVn">
+<br>
+<button (click)="add()">Thêm từ mới</button>
+
+</div>
+<button (click)="showForm = true" *ngIf="!showForm">Thêm từ mới</button>
+<br>
+
+<select [(ngModel)] = "FilterStatus">
+    <option value="See_all">See all</option>
+    <option value="memorized_true">Memorized True</option>
+    <option value="memorized_false">Memorized False </option>
+</select>
+<div *ngFor="let subject of arrWords" >
+    <div class="word" *ngIf= "FilterStatus === 'See_all' || (FilterStatus === 'memorized_true' && subject.memorized) || (FilterStatus === 'memorized_false' && !subject.memorized)">    
+        <h4 
+            [ngStyle]="{color: subject.memorized ? 'green' : 'red' }">
+            {{subject.en}}
+        </h4>
+            <p>{{subject.vn}}</p>
+            <button (click)="Xoa(subject.id)">Delete</button>
+            <p>{{subject.id}}</p>
+    </div>
+</div>

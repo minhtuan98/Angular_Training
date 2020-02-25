@@ -1,0 +1,11 @@
+<input placeholder=" Enter yourname" [(ngModel)]="name" #tencuaban>
+<h3 [ngStyle]= "name.length % 2 === 0 ? eventStyle : oddStyle">   
+    
+    
+    Your name is: {{name}} </h3>
+<h3 [style.color]="'yellow'">{{name}}</h3>
+<h3 style.color='green'>{{tencuaban.value | json}}</h3>
+<code>{{tencuaban.value | json}}</code>
+<h3 [style.color]="isHighlight ? 'Red' : 'Blue'">{{name}}</h3>
+
+<div [ngClass] ="currentClass"></div>

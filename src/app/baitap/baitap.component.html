@@ -1,0 +1,4 @@
+<div *ngFor= "let e of arrInfo">
+    <app-baitap2 [name]= "e.name" [age]="e.age"></app-baitap2>
+    <button (click)="XoaThongTin()">DeLETE</button>
+</div>
